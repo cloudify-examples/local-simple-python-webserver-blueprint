@@ -28,16 +28,7 @@ def run_server():
     # emulating /dev/null
     dn = open(os.devnull, 'wb')
     process = subprocess.Popen(webserver_cmd, stdout=dn, stderr=dn)
-
-    # we need this for linux because on linux process.pid is not accurate.
-    # it provides somewhat arbitrary values.
-    if not IS_WIN and not IS_DARWIN:
-        del webserver_cmd[0]
-        get_pid = ['pidof', '-s']
-        get_pid.extend(webserver_cmd)
-        return int(subprocess.check_output(get_pid))
-    else:
-        return process.pid
+    return process.pid
 
 
 def set_pid(pid):
