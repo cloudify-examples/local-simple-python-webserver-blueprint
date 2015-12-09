@@ -1,6 +1,6 @@
 # simple-python-webserver-blueprint
 
-This is the blueprint example used for Cloudify's Intro section in our [Docs](http://docs.get-cloudify.org).
+This is the blueprint example used for Cloudify's Intro section in our [Docs](http://docs.getcloudify.org).
 
 The blueprint runs a local Python SimpleHTTPServer and allows to tear it down as well and supports Linux,
 
