@@ -11,10 +11,9 @@ from cloudify import ctx
 
 
 IS_WIN = os.name == 'nt'
-IS_DARWIN = (sys.platform == 'darwin')
 
-# Get the port from the blueprint. We're running in the context of the
-# `http_web_server` node so we can read its `port` property.
+# Get the port from the blueprint. We're running this script in the context of
+# the `http_web_server` node so we can read its `port` property.
 PORT = ctx.node.properties['port']
 
 
@@ -26,18 +25,9 @@ def run_server():
     # The ctx object provides a built in logger.
     ctx.logger.info('Running WebServer locally on port: {0}'.format(PORT))
     # emulating /dev/null
-    dn = open(os.devnull, 'wb')
-    process = subprocess.Popen(webserver_cmd, stdout=dn, stderr=dn)
-
-    # we need this for linux because on linux process.pid is not accurate.
-    # it provides somewhat arbitrary values.
-    if not IS_WIN and not IS_DARWIN:
-        del webserver_cmd[0]
-        get_pid = ['pidof', '-s']
-        get_pid.extend(webserver_cmd)
-        return int(subprocess.check_output(get_pid))
-    else:
-        return process.pid
+    with open(os.devnull, 'wb') as dn:
+        process = subprocess.Popen(webserver_cmd, stdout=dn, stderr=dn)
+    return process.pid
 
 
 def set_pid(pid):
