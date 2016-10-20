@@ -1,3 +1,5 @@
+[![Build Status](https://circleci.com/gh/cloudify-examples/simple-python-webserver-blueprint.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/cloudify-examples/simple-python-webserver-blueprint)
+
 # simple-python-webserver-blueprint
 
 This is the blueprint example used for Cloudify's Intro section in our [Docs](http://docs.getcloudify.org).
