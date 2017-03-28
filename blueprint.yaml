@@ -2,7 +2,7 @@ tosca_definitions_version: cloudify_dsl_1_3
 
 
 imports:
-  - http://www.getcloudify.org/spec/cloudify/3.4/types.yaml
+  - http://www.getcloudify.org/spec/cloudify/4.0/types.yaml
 
 
 inputs:
@@ -16,6 +16,7 @@ inputs:
 
 
 node_templates:
+
   host:
     type: cloudify.nodes.Compute
     properties:
