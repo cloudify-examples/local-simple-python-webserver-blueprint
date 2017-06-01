@@ -11,20 +11,14 @@ The blueprint runs a local Python SimpleHTTPServer and allows to tear it down as
 * Clone the repository
 
 ```bash
-git clone https://github.com/cloudify-examples/simple-python-webserver-blueprint.git
-cd simple-python-webserver-blueprint
-```
-
-* Initialize the blueprint
-
-```bash
-cfy local init --blueprint-path blueprint.yaml
+git clone https://github.com/cloudify-examples/local-simple-python-webserver-blueprint.git
+cd local-simple-python-webserver-blueprint
 ```
 
 * Install
 
 ```bash
-cfy local execute -w install
+cfy install blueprint.yaml
 ```
 
 This will run a `Hello World` server on your local machine in port 8000.
@@ -33,7 +27,7 @@ You can `curl http://localhost:8000` or open the link in your browser.
 * Get Outputs
 
 ```bash
-cfy local outputs
+cfy deployments outputs
 ```
 
 You should see the endpoint of the webserver.
@@ -41,7 +35,7 @@ You should see the endpoint of the webserver.
 * Get Instances
 
 ```bash
-cfy local instances
+cfy node-instances
 ```
 
 You should see the two instances as defined in the blueprint.
@@ -49,5 +43,5 @@ You should see the two instances as defined in the blueprint.
 * Uninstall
 
 ```bash
-cfy local execute -w uninstall
+cfy uninstall
 ```
