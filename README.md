@@ -5,7 +5,7 @@ The blueprint installs a webserver on your local machine. It is supported on Lin
 
 ## Prerequisites
 
-- [Cloudify CLI](http://docs.getcloudify.org/4.0.0/installation/from-packages/) installed on your computer.
+- [Cloudify CLI](http://docs.cloudify.co/4.3.0/installation/installing-cli/) installed on your computer.
 - Your workstation's firewall should allow HTTP connections on port 8000.
 
 
