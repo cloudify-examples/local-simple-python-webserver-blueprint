@@ -1,5 +1,3 @@
-[![Build Status](https://circleci.com/gh/cloudify-examples/simple-python-webserver-blueprint.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/cloudify-examples/simple-python-webserver-blueprint)
-
 # simple-python-webserver-blueprint
 
 The blueprint installs a webserver on your local machine. It is supported on Linux and most *nix machines.
