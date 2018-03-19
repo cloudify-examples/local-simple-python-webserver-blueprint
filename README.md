@@ -34,6 +34,7 @@ Open your browser to http://localhost:8000
 
 You will see the following in your browser:
 
+![hwimage](/hello-world.png)
 
 
 * Uninstall
