@@ -20,7 +20,6 @@ git clone https://github.com/cloudify-examples/local-simple-python-webserver-blu
 cd local-simple-python-webserver-blueprint
 ```
 
-
 * Install
 
 ```bash
@@ -28,29 +27,17 @@ cfy install blueprint.yaml
 ```
 
 This will run a `Hello World` server on your local machine in port 8000.
-You can `curl http://localhost:8000` or open the link in your browser.
-
-
-* Get Outputs
 
 ```bash
-cfy deployments outputs
+Open your browser to http://localhost:8000
 ```
 
-You should see the endpoint of the webserver.
+You will see the following in your browser:
 
-
-* Get Instances
-
-```bash
-cfy node-instances
-```
-
-You should see the two instances as defined in the blueprint.
 
 
 * Uninstall
 
 ```bash
-cfy uninstall
+cfy uninstall -b local-simple-python-webserver-blueprint
 ```
