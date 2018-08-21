@@ -16,6 +16,16 @@ jobs:
       python:
         version: pypy-2.2.1
 
+    steps:
+      - checkout
+      - run: wget http://cloudify-release-eu.s3.amazonaws.com/cloudify/18.4.17/release/cloudify-manager-docker-image-18.4.17.tar
+      - run: docker load -i cloudify-manager-docker-image-18.4.17.tar
+      - run: rm cloudify-manager-docker-image-18.4.17.tar
+      - run: docker run --name cfy_manager -d --restart unless-stopped -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock --security-opt seccomp:unconfined --cap-add SYS_ADMIN --network host docker-cfy-manager:latest
+      - run: pip install cloudify
+      - run: cfy profiles use localhost -u admin -p admin -t default_tenant
+      - run: cfy blueprints upload local-blueprint.yaml -b bp0 > /dev/null 2>&1
+
 workflows:
   version: 2
   build_and_test:
