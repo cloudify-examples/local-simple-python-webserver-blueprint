@@ -24,7 +24,7 @@ jobs:
       - run: docker run --name cfy_manager -d --restart unless-stopped -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock --security-opt seccomp:unconfined --cap-add SYS_ADMIN --network host docker-cfy-manager:latest
       - run: pip install cloudify
       - run: cfy profiles use localhost -u admin -p admin -t default_tenant
-      - run: cfy blueprints upload local-blueprint.yaml -b bp0 > /dev/null 2>&1
+      - run: cfy blueprints upload blueprint.yaml -b bp0 > /dev/null 2>&1
 
 workflows:
   version: 2
