@@ -1,0 +1,23 @@
+version: 2
+
+checkout:
+  post:
+    - >
+      if [ -n "$CI_PULL_REQUEST" ]; then
+        PR_ID=${CI_PULL_REQUEST##*/}
+        git fetch origin +refs/pull/$PR_ID/merge:
+        git checkout -qf FETCH_HEAD
+      fi
+
+jobs:
+  test_validation:
+    machine:
+      enabled: true
+      python:
+        version: pypy-2.2.1
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - test_validation
