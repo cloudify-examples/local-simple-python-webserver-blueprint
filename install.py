@@ -18,7 +18,9 @@ PORT = ctx.node.properties['port']
 
 
 def run_server():
-    os.chdir('/opt/manager/resources/blueprints/default_tenant/local-simple-python-webserver-blueprint')
+    os.chdir('/opt/manager/resources/blueprints/{0}/{1}'.format(
+        ctx.tenant_name,
+        ctx.blueprint.id))
     webserver_cmd = [sys.executable, '-m', 'SimpleHTTPServer', str(PORT)]
     if not IS_WIN:
         webserver_cmd.insert(0, 'nohup')
